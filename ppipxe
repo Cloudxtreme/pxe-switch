@@ -1,0 +1,10 @@
+host hostname{
+    hardware ethernet hostmac;
+    fixed-address hostip;
+    if exists user-class and option user-class = "iPXE"{
+        filename "http://apacheip/platform/ipxeboot.php?uuid=${board_sn}&&mac=${net0/mac}&&boardname=${boardname}&&bootargs=${bootargs:uristring}";
+    }else{
+        filename "undionly.kpxe";
+    }
+} #hostend
+

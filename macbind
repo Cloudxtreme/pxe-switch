@@ -1,0 +1,11 @@
+host hostname{
+	hardware ethernet hostmac;
+	fixed-address hostip;
+	option subnet-mask 255.255.255.0;
+	option broadcast-address 192.168.1.255;
+	option routers op-route;
+	next-server op-tftp;
+	allow booting;
+	allow bootp;
+	filename "pxelinux.0";
+} #hostend
